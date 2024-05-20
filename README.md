@@ -2,5 +2,5 @@
 funny
 
 ## Especificaciones de godot:
-1.-**Versión 4.1**
-1.-Author: Nilse Balderas
+1.- **Versión 4.1**
+2.- Author: Nilse Balderas
