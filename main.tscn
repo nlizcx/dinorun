@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ymovnprvl1bq"]
+
+[ext_resource type="PackedScene" uid="uid://calno8avfvjnl" path="res://background/background.tscn" id="1_b87y0"]
+[ext_resource type="Script" path="res://main.gd" id="1_lmh48"]
+[ext_resource type="PackedScene" uid="uid://dx35l6np12xir" path="res://dinoplayer/player.tscn" id="2_y617i"]
+[ext_resource type="PackedScene" uid="uid://ls1kyar5ke8b" path="res://floor/floor.tscn" id="3_ogsmu"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_lmh48")
+
+[node name="Player" parent="." instance=ExtResource("2_y617i")]
+position = Vector2(127, 511)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
+limit_bottom = 0
+limit_smoothed = true
+
+[node name="Background" parent="." instance=ExtResource("1_b87y0")]
+
+[node name="Floor" parent="." instance=ExtResource("3_ogsmu")]
+position = Vector2(0, -1)
