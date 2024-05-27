@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds4opq58w8e6s"]
+
+[ext_resource type="Script" path="res://mob/mob.gd" id="1_sygnl"]
+[ext_resource type="Texture2D" uid="uid://5qlyw8rd4knh" path="res://gatoooo.webp" id="3_ysjj1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vk46y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0x7c0"]
+
+[node name="Mob" type="Area2D"]
+script = ExtResource("1_sygnl")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-10, -10)
+
+[node name="Squareco" type="CollisionShape2D" parent="."]
+position = Vector2(-10, -10)
+shape = SubResource("RectangleShape2D_vk46y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Squareco"]
+position = Vector2(1.07288e-06, -4.76837e-07)
+scale = Vector2(0.0204082, 0.0204082)
+texture = ExtResource("3_ysjj1")
+
+[node name="gato" type="CollisionShape2D" parent="."]
+position = Vector2(-10, -10)
+shape = SubResource("RectangleShape2D_0x7c0")
+
+[node name="Sprite2D" type="Sprite2D" parent="gato"]
+position = Vector2(1.43051e-06, 2.38419e-07)
+scale = Vector2(0.0204082, 0.0204082)
+texture = ExtResource("3_ysjj1")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

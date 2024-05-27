@@ -12,7 +12,7 @@ script = ExtResource("1_lmh48")
 position = Vector2(127, 511)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-limit_left = 0
+position = Vector2(447, 10)
 limit_top = 0
 limit_bottom = 0
 limit_smoothed = true
@@ -21,3 +21,7 @@ limit_smoothed = true
 
 [node name="Floor" parent="." instance=ExtResource("3_ogsmu")]
 position = Vector2(0, -1)
+
+[node name="MOBTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="MOBTimer" to="." method="_on_mob_timer_timeout"]
