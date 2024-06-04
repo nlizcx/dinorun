@@ -1,34 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds4opq58w8e6s"]
+[gd_scene load_steps=6 format=3 uid="uid://ds4opq58w8e6s"]
 
 [ext_resource type="Script" path="res://mob/mob.gd" id="1_sygnl"]
+[ext_resource type="Texture2D" uid="uid://cpg6dcueqe276" path="res://kittyy.png" id="3_kliwm"]
 [ext_resource type="Texture2D" uid="uid://5qlyw8rd4knh" path="res://gatoooo.webp" id="3_ysjj1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk46y"]
+size = Vector2(142.5, 128.154)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0x7c0"]
+size = Vector2(142.5, 128.154)
 
 [node name="Mob" type="Area2D"]
 script = ExtResource("1_sygnl")
 
+[node name="GatitoCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-72, -64)
+shape = SubResource("RectangleShape2D_vk46y")
+
+[node name="GatitoSprite" type="Sprite2D" parent="."]
+position = Vector2(-71.5, -64)
+scale = Vector2(0.145918, 0.130612)
+texture = ExtResource("3_ysjj1")
+
+[node name="GatoCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-72, -64)
+shape = SubResource("RectangleShape2D_0x7c0")
+
+[node name="GatoSprite" type="Sprite2D" parent="."]
+position = Vector2(-72, -64)
+scale = Vector2(0.144898, 0.130612)
+texture = ExtResource("3_ysjj1")
+
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-10, -10)
 
-[node name="Squareco" type="CollisionShape2D" parent="."]
-position = Vector2(-10, -10)
-shape = SubResource("RectangleShape2D_vk46y")
+[node name="KittySprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-63.5, -66)
+scale = Vector2(0.693989, 0.670051)
+texture = ExtResource("3_kliwm")
 
-[node name="Sprite2D" type="Sprite2D" parent="Squareco"]
-position = Vector2(1.07288e-06, -4.76837e-07)
-scale = Vector2(0.0204082, 0.0204082)
-texture = ExtResource("3_ysjj1")
+[node name="KittyCollision" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(-62, -66)
+scale = Vector2(0.699795, 0.657043)
+polygon = PackedVector2Array(91.5, 98.5, -91.5, 98.5, -91.5, -98.5, 91.5, -98.5)
 
-[node name="gato" type="CollisionShape2D" parent="."]
-position = Vector2(-10, -10)
-shape = SubResource("RectangleShape2D_0x7c0")
-
-[node name="Sprite2D" type="Sprite2D" parent="gato"]
-position = Vector2(1.43051e-06, 2.38419e-07)
-scale = Vector2(0.0204082, 0.0204082)
-texture = ExtResource("3_ysjj1")
-
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
